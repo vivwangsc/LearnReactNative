@@ -9,10 +9,16 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,Button
 } from 'react-native';
+import CompWsc from './app/component/CompWsc';
 
 export default class LearnReactNative extends Component {
+    _onPress(){
+        alert("hi");
+        console.log("hi,you hit me");
+    }
+
   render() {
     return (
       <View style={styles.container}>
@@ -26,6 +32,12 @@ export default class LearnReactNative extends Component {
           Double tap R on your keyboard to reload,{'\n'}
           Shake or press menu button for dev menu
         </Text>
+        <Button
+            onPress={this._onPress}
+            title="点我"
+            accessibilityLabel="See an informative alert"
+        />
+        <CompWsc name="王顺初" />
       </View>
     );
   }
