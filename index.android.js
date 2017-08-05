@@ -19,6 +19,34 @@ export default class LearnReactNative extends Component {
         console.log("hi,you hit me");
     }
 
+    getDefaultProps(){
+        console.log("getDefaultProps")
+        return {title:"HelloWorld"}
+    }
+
+    getInitialState(){
+        console.log("getInitialState")
+        return {content:"点击屏幕任意位置"}
+    }
+
+    componentWillMount(){
+        console.log("componentWillMount")
+    }
+    componentDidMount(){
+        console.log("componentDidMount")
+    }
+
+    shouldComponentUpdate(nextProps,nextState){
+        console.log("shouldComponentUpdate")
+        return true
+    }
+    componentWillUpdate(nextProps,nextState){
+        console.log("componentWillUpdate")
+    }
+    componentDidUpdate(prevProps,prevState){
+        console.log("componentDidUpdate")
+    }
+
   render() {
     return (
       <View style={styles.container}>
@@ -37,7 +65,6 @@ export default class LearnReactNative extends Component {
             title="点我"
             accessibilityLabel="See an informative alert"
         />
-        <CompWsc name="王顺初" />
       </View>
     );
   }

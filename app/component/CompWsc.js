@@ -1,6 +1,6 @@
 'use strict';
 
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {
     StyleSheet,
     Text,
@@ -9,19 +9,9 @@ import {
 } from 'react-native';
 
 export default class CompWsc extends Component {
-    state = {
-        modalVisible: false,
-    }
-
     render() {
         return (
             <View style={styles.container}>
-                <Modal
-                    animationType={"slide"}
-                    transparent={false}
-                    visible={this.state.modalVisible}
-                    onRequestClose={() => {alert("Modal has been closed.")}
-                />
                 <Text style={styles.welcome}>
                     Welcome {this.props.name}!
                 </Text>
@@ -40,7 +30,7 @@ export default class CompWsc extends Component {
             </View>
         );
     }
-
+}
 
 const styles = StyleSheet.create({
     container: {
