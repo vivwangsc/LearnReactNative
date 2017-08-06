@@ -5,28 +5,35 @@ import {
     StyleSheet,
     Text,
     View,
-    Modal
+    Button,DeviceEventEmitter
 } from 'react-native';
 
 export default class CompWsc extends Component {
+    componentDidMount() {
+        console.log("child listner is add!");
+        DeviceEventEmitter.addListener('event',(paras)=>{
+            console.log("receive message from child!" + paras)
+        });
+        console.log("componentDidMount")
+    }
+
+    _onPress(){
+        console.log("from child!");
+        DeviceEventEmitter.emit("event","send message from child");
+    }
+
     render() {
         return (
             <View style={styles.container}>
                 <Text style={styles.welcome}>
                     Welcome {this.props.name}!
                 </Text>
-                <Text style={styles.instructions}>
-                    This app shows the basics of navigating between a few screens,
-                    working with ListView and handling text input.
-                </Text>
-                <Text style={styles.instructions}>
-                    Modify any files to get started. For example try changing the
-                    file views/welcome/WelcomeText.android.js.
-                </Text>
-                <Text style={styles.instructions}>
-                    Double tap R on your keyboard to reload,{'\n'}
-                    Shake or press menu button for dev menu.
-                </Text>
+                <Button
+                    onPress={this._onPress}
+                    title="发送事件"
+                    accessibilityLabel="See an informative alert"
+                />
+
             </View>
         );
     }
